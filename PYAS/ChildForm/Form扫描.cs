@@ -32,6 +32,7 @@ namespace PYAS.ChildForm
             gp.CloseFigure();
             Region rg = new Region(gp);
             pictureBox1.Region = rg;
+            pictureBox2.Region = rg;
         }
     }
 }
