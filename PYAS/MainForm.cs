@@ -274,6 +274,36 @@ namespace PYAS
                 return;
             }
         }
+
+        private void panel3_MouseEnter(object sender, EventArgs e)
+        {
+            panel3.BackColor = Color.FromArgb(237, 237, 237);
+        }
+
+        private void panel3_MouseLeave(object sender, EventArgs e)
+        {
+            panel3.BackColor = Color.FromArgb(230, 230, 230);
+        }
+
+        private void panel4_MouseEnter(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.FromArgb(237, 237, 237);
+        }
+
+        private void panel4_MouseLeave(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.FromArgb(230, 230, 230);
+        }
+
+        private void panel5_MouseEnter(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.FromArgb(237, 237, 237);
+        }
+
+        private void panel5_MouseLeave(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.FromArgb(230, 230, 230);
+        }
     }
     //contextMenuStrip1.Renderer = new CustomContextMenuStripRenderer();
     public class CustomContextMenuStripRenderer : ToolStripProfessionalRenderer

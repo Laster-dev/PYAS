@@ -184,6 +184,9 @@
             this.label2.Size = new System.Drawing.Size(59, 30);
             this.label2.TabIndex = 8;
             this.label2.Text = "状态";
+            this.label2.Click += new System.EventHandler(this.panel2_Click);
+            this.label2.MouseEnter += new System.EventHandler(this.panel2_MouseEnter);
+            this.label2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
             // 
             // pictureBox5
             // 
@@ -195,6 +198,9 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.panel2_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.panel2_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
             // 
             // panel3
             // 
@@ -206,6 +212,8 @@
             this.panel3.Size = new System.Drawing.Size(204, 148);
             this.panel3.TabIndex = 1;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
+            this.panel3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter);
+            this.panel3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave);
             // 
             // label3
             // 
@@ -217,6 +225,9 @@
             this.label3.Size = new System.Drawing.Size(59, 30);
             this.label3.TabIndex = 10;
             this.label3.Text = "扫描";
+            this.label3.Click += new System.EventHandler(this.panel3_Click);
+            this.label3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter);
+            this.label3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave);
             // 
             // pictureBox6
             // 
@@ -228,6 +239,9 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.panel3_Click);
+            this.pictureBox6.MouseEnter += new System.EventHandler(this.panel3_MouseEnter);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.panel3_MouseLeave);
             // 
             // panel4
             // 
@@ -239,6 +253,8 @@
             this.panel4.Size = new System.Drawing.Size(204, 148);
             this.panel4.TabIndex = 2;
             this.panel4.Click += new System.EventHandler(this.panel4_Click);
+            this.panel4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
+            this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             // 
             // label4
             // 
@@ -250,6 +266,9 @@
             this.label4.Size = new System.Drawing.Size(59, 30);
             this.label4.TabIndex = 10;
             this.label4.Text = "工具";
+            this.label4.Click += new System.EventHandler(this.panel4_Click);
+            this.label4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
+            this.label4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             // 
             // pictureBox7
             // 
@@ -261,6 +280,9 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 9;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.panel4_Click);
+            this.pictureBox7.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             // 
             // panel5
             // 
@@ -272,6 +294,8 @@
             this.panel5.Size = new System.Drawing.Size(204, 148);
             this.panel5.TabIndex = 3;
             this.panel5.Click += new System.EventHandler(this.panel5_Click);
+            this.panel5.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
+            this.panel5.MouseLeave += new System.EventHandler(this.panel5_MouseLeave);
             // 
             // label5
             // 
@@ -283,6 +307,9 @@
             this.label5.Size = new System.Drawing.Size(59, 30);
             this.label5.TabIndex = 10;
             this.label5.Text = "保护";
+            this.label5.Click += new System.EventHandler(this.panel5_Click);
+            this.label5.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.panel5_MouseLeave);
             // 
             // pictureBox8
             // 
@@ -294,6 +321,9 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 9;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.panel5_Click);
+            this.pictureBox8.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.panel5_MouseLeave);
             // 
             // panel6
             // 

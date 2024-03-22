@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PYAS", "PYAS\PYAS.csproj", "{5DAF9368-65BF-45CA-817B-723E6B146A9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{81F8B129-BB75-410D-ADB0-EE4F6C701F7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5DAF9368-65BF-45CA-817B-723E6B146A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DAF9368-65BF-45CA-817B-723E6B146A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DAF9368-65BF-45CA-817B-723E6B146A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F8B129-BB75-410D-ADB0-EE4F6C701F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81F8B129-BB75-410D-ADB0-EE4F6C701F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81F8B129-BB75-410D-ADB0-EE4F6C701F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81F8B129-BB75-410D-ADB0-EE4F6C701F7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -68,6 +68,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(165, 40);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -80,6 +81,7 @@
             this.label3.Size = new System.Drawing.Size(78, 24);
             this.label3.TabIndex = 3;
             this.label3.Text = "病毒扫描";
+            this.label3.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // richTextBox1
             // 
@@ -98,6 +100,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(165, 40);
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // label4
             // 
@@ -110,6 +113,7 @@
             this.label4.Size = new System.Drawing.Size(78, 24);
             this.label4.TabIndex = 6;
             this.label4.Text = "立即删除";
+            this.label4.Visible = false;
             // 
             // Form扫描
             // 
