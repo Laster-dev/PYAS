@@ -22,7 +22,7 @@ namespace PYAS.Helper
             Api360request = (HttpWebRequest)WebRequest.Create(Api360Url);
             Api360request.Method = "POST";
             Api360request.ContentType = "multipart/form-data";
-            string StrBody = // DON'T USE TAB OR SPACE
+            string StrBody = 
       $@"-------------------------------7d83e2d7a141e
 Content-Disposition: form-data; name=""md5s""
 

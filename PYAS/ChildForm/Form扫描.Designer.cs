@@ -96,6 +96,7 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
+            this.pictureBox2.Click += new System.EventHandler(this.label4_Click);
             // 
             // label4
             // 
@@ -110,6 +111,7 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "立即删除";
             this.label4.Visible = false;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -126,8 +128,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(630, 480);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);

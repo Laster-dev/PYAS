@@ -126,7 +126,7 @@ namespace PYAS
 
         private void panel2_MouseEnter(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(237, 237, 237);
+            panel2.BackColor = Color.FromArgb(200, 200, 200);
         }
 
         private void panel2_MouseLeave(object sender, EventArgs e)
@@ -147,15 +147,6 @@ namespace PYAS
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //GraphicsPath gp = new GraphicsPath();
-            //gp.AddEllipse(0, 0, pictureBox1.Width - 3, pictureBox1.Height - 3);
-            //Region rg = new Region(gp);
-            //pictureBox1.Region = rg;
-            //pictureBox2.Region = rg;
-            //pictureBox3.Region = rg;
-
-
-
             GraphicsPath gp = new GraphicsPath();
             float radius = 15; // 调整圆角的大小
             gp.AddArc(0, 0, radius * 2, radius * 2, 180, 90);
@@ -222,6 +213,7 @@ namespace PYAS
                 activeform.TopLevel = false;
                 activeform.Dock = DockStyle.Fill;
                 activeform.Parent = this.panel6;
+
                 activeform.Show();
             }
             else
@@ -239,6 +231,7 @@ namespace PYAS
                 activeform.TopLevel = false;
                 activeform.Dock = DockStyle.Fill;
                 activeform.Parent = this.panel6;
+
                 activeform.Show();
             }
             else
@@ -256,6 +249,7 @@ namespace PYAS
                 activeform.TopLevel = false;
                 activeform.Dock = DockStyle.Fill;
                 activeform.Parent = this.panel6;
+
                 activeform.Show();
             }
             else
@@ -273,6 +267,7 @@ namespace PYAS
                 activeform.TopLevel = false;
                 activeform.Dock = DockStyle.Fill;
                 activeform.Parent = this.panel6;
+               
                 activeform.Show();
             }
             else
@@ -283,7 +278,7 @@ namespace PYAS
 
         private void panel3_MouseEnter(object sender, EventArgs e)
         {
-            panel3.BackColor = Color.FromArgb(237, 237, 237);
+            panel3.BackColor = Color.FromArgb(200, 200, 200);
         }
 
         private void panel3_MouseLeave(object sender, EventArgs e)
@@ -293,7 +288,7 @@ namespace PYAS
 
         private void panel4_MouseEnter(object sender, EventArgs e)
         {
-            panel4.BackColor = Color.FromArgb(237, 237, 237);
+            panel4.BackColor = Color.FromArgb(200, 200, 200);
         }
 
         private void panel4_MouseLeave(object sender, EventArgs e)
@@ -303,7 +298,7 @@ namespace PYAS
 
         private void panel5_MouseEnter(object sender, EventArgs e)
         {
-            panel5.BackColor = Color.FromArgb(237, 237, 237);
+            panel5.BackColor = Color.FromArgb(200, 200, 200);
         }
 
         private void panel5_MouseLeave(object sender, EventArgs e)

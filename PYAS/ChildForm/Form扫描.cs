@@ -61,23 +61,29 @@ namespace PYAS.ChildForm
                         break;
                 }
                 labelscan.AutoSize = false;
-                labelscan.Font = new Font("微软雅黑", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-                labelscan.Location = new Point(49, 1);
+                labelscan.Font = new Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                labelscan.Location = new Point(1, 1);
                 labelscan.Size = new Size(450, 20);
                 labelscan.Text = message;
                 labelscan.ForeColor = color;
 
                 labeltype.AutoSize = true;
-                labeltype.Font = new Font("微软雅黑", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-                labeltype.Location = new Point(49, 20);
-                labeltype.Size = new Size(50, 20);
+                labeltype.Font = new Font("微软雅黑",8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                labeltype.Location = new Point(1, 20);
+                labeltype.Size = new Size(450, 20);
                 labeltype.Text = type;
                 labeltype.ForeColor = color;
+
+                labeltype.BackColor = Color.Transparent;
+                labeltype.Parent = panelscan;
+                labelscan.BackColor = Color.Transparent;
+                labelscan.Parent = panelscan;
 
 
                 panelscan.Controls.Add(labelscan);//添加描述
                 panelscan.Controls.Add(labeltype);//添加文件路径
-                panelscan.Controls.Add(pictureBoxscan);//添加图片
+                panelscan.Tag = message;//设置panel的tag为路径
+                //panelscan.Controls.Add(pictureBoxscan);//添加图片
                 //panelscan.Size = new Size(565, 40);
 
 
@@ -152,24 +158,27 @@ namespace PYAS.ChildForm
                                 if (res >= 50)
                                 {
                                     j++;
-                                    cout = $"危险{type}";
-                                    WriteLog((filePath) ,cout , Color.Red, 2);
+                                    cout = $"危险   恶意值：{res}   {type}";
+                                    pictureBox2.Invoke(new Action(() => pictureBox2.Visible = true));
+                                    label4.Invoke(new Action(() => label4.Visible = true));
+                                    string filePath1 = "危险 | " + filePath;
+                                    WriteLog((filePath1) ,cout , Color.Red, 2);
                                 }
                                 else if (res <= 20)
                                 {
                                     l++;
-                                    cout = "安全";
+                                    cout = $"安全   恶意值：{res}";
                                     WriteLog((filePath),cout, Color.Green, 0);
                                 }
                                 else if (res == 0)
                                 {
-                                    cout = "扫描失败";
+                                    cout = $"扫描失败";
                                     WriteLog(filePath, cout, Color.Green, 2);
                                 }
                                 else
                                 {
                                     k++;
-                                    cout = "可疑";
+                                    cout = $"可疑   恶意值：{res}";
                                     WriteLog((filePath), cout, Color.FromArgb(214, 157, 133), 1);
                                 }
                             }
@@ -202,6 +211,11 @@ namespace PYAS.ChildForm
             Graphics g = e.Graphics;
 
             // 画出边界
+
+
+            Color FColor = Color.White; //颜色1
+            Brush b = new LinearGradientBrush(this.ClientRectangle, FColor, TColor, LinearGradientMode.Vertical);  //实例化刷子，第一个参数指示上色区域，第二个和第三个参数分别渐变颜色的开始和结束，第四个参数表示颜色的方向。
+            g.FillRectangle(b, this.ClientRectangle);  //进行上色
             g.DrawRectangle(pen, 0, 0, ((Panel)sender).Width - 1, ((Panel)sender).Height - 1);
         }
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -215,6 +229,10 @@ namespace PYAS.ChildForm
             Graphics g = e.Graphics;
 
             // 画出边界
+         
+            Color FColor = Color.White; //颜色1
+            Brush b = new LinearGradientBrush(this.ClientRectangle, FColor, TColor, LinearGradientMode.Vertical);  //实例化刷子，第一个参数指示上色区域，第二个和第三个参数分别渐变颜色的开始和结束，第四个参数表示颜色的方向。
+            g.FillRectangle(b, this.ClientRectangle);  //进行上色
             g.DrawRectangle(pen, 0, 0, ((Panel)sender).Width - 1, ((Panel)sender).Height - 1);
         }
         private void panel0_Paint(object sender, PaintEventArgs e)
@@ -227,7 +245,28 @@ namespace PYAS.ChildForm
             Graphics g = e.Graphics;
 
             // 画出边界
+           
+            Color FColor = Color.White; //颜色1
+            Brush b = new LinearGradientBrush(this.ClientRectangle, FColor, TColor, LinearGradientMode.Vertical);  //实例化刷子，第一个参数指示上色区域，第二个和第三个参数分别渐变颜色的开始和结束，第四个参数表示颜色的方向。
+            g.FillRectangle(b, this.ClientRectangle);  //进行上色
             g.DrawRectangle(pen, 0, 0, ((Panel)sender).Width - 1, ((Panel)sender).Height - 1);
+        }
+
+        private async void label4_Click(object sender, EventArgs e)
+        {
+            foreach (Control mControl in this.flowLayoutPanel1.Controls)
+            {
+                await Task.Run(() =>
+                {
+                    var filepath = (string)mControl.Tag;
+                    if (filepath.Contains("危险 | "))
+                    {
+                        filepath = filepath.Replace("危险 | ","");
+                        File.Delete(filepath);                                                          //删除文件
+                    }
+                    flowLayoutPanel1.Invoke(new Action(() => flowLayoutPanel1.Controls.Remove(mControl)));      //删除控件
+                });
+            }
         }
     }
 }
