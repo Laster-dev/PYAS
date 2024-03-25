@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace test
+namespace PYAS.ChildForm
 {
-    public partial class Form1 : Form
+    public partial class Form进程 : Form
     {
-        public Form1()
+        public Form进程()
         {
             InitializeComponent();
         }

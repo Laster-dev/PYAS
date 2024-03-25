@@ -83,6 +83,12 @@
     <Compile Include="ChildForm\Form状态.Designer.cs">
       <DependentUpon>Form状态.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForm\Form进程.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\Form进程.Designer.cs">
+      <DependentUpon>Form进程.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\360.cs" />
     <Compile Include="Helper\win32.cs" />
     <Compile Include="MainForm.cs">
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForm\Form状态.resx">
       <DependentUpon>Form状态.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\Form进程.resx">
+      <DependentUpon>Form进程.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -132,6 +141,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ICON.ico" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\1.png" />
+    <None Include="Resources\图标16.ico" />
+    <None Include="Resources\im.ico" />
+    <None Include="Resources\Icon.ico" />
+    <None Include="Resources\图标_可疑.png" />
+    <None Include="Resources\恶意程序.png" />
+    <None Include="Resources\安全.png" />
+    <None Include="Resources\可疑.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

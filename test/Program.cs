@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace MotaAntivirus.Antivirus.ScanFile
@@ -126,9 +127,15 @@ Content-Disposition: form-data; name=""mid""
             }
         }
         public static void Main(string[] args) {
+            var folderPath = Console.ReadLine();
+            // 遍历文件夹下的所有文件  
+            foreach (string filePath in Directory.EnumerateFiles(folderPath, "*.*", SearchOption.AllDirectories).Where(s => s.EndsWith(".exe") || s.EndsWith(".dll")))
+            {
+                var str = Api360CloudScan(GetMD5HashFromFile(filePath));
+                Console.WriteLine(str);
+            }
+           
 
-            var str = Api360CloudScan(GetMD5HashFromFile(@"C:\Users\laster\Desktop\hpatchz.exe"));
-            Console.WriteLine(str);
             Console.ReadKey();
         }
     }

@@ -71,6 +71,11 @@ Content-Disposition: form-data; name=""mid""
                 {
                     string body = reader.ReadToEnd();
                     //Console.WriteLine(body);
+                    response.Close();
+                    stream.Close();
+                    reader.Close();
+                    return body;
+                    /*
                     XElement Xmlbody = XElement.Parse(body);
                     string MalwareName = Xmlbody.Descendants("e_level").FirstOrDefault()?.Value;
                     response.Close();
@@ -84,12 +89,12 @@ Content-Disposition: form-data; name=""mid""
                     else
                     {
                         return "0";
-                    }
+                    }*/
                 }
             }
             catch
             {
-                return "0";
+                return "";
             }
         }
         /// <summary>
