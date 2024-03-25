@@ -21,7 +21,7 @@ namespace PYAS.ChildForm
         private void Form保护_Load(object sender, EventArgs e)
         {
             GraphicsPath gp = new GraphicsPath();
-            float radius = 15; // 调整圆角的大小
+            float radius = 10; // 调整圆角的大小
             gp.AddArc(0, 0, radius * 2, radius * 2, 180, 90);
             gp.AddArc(pictureBox1.Width - (radius * 2), 0, radius * 2, radius * 2, 270, 90);
             gp.AddArc(pictureBox1.Width - (radius * 2), pictureBox1.Height - (radius * 2), radius * 2, radius * 2, 0, 90);

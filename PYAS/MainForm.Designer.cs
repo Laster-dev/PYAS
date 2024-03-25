@@ -78,10 +78,11 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(13, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 50);
+            this.panel1.Size = new System.Drawing.Size(1002, 48);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -100,7 +101,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(909, 15);
+            this.pictureBox3.Location = new System.Drawing.Point(877, 12);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -113,7 +114,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(955, 15);
+            this.pictureBox2.Location = new System.Drawing.Point(915, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -125,7 +126,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1001, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(955, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -155,11 +156,12 @@
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 50);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 52);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 603);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(203, 585);
             this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // panel2
             // 
@@ -168,9 +170,10 @@
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(204, 148);
+            this.panel2.Size = new System.Drawing.Size(204, 144);
             this.panel2.TabIndex = 0;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             this.panel2.MouseEnter += new System.EventHandler(this.panel2_MouseEnter);
             this.panel2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
             // 
@@ -206,10 +209,10 @@
             // 
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox6);
-            this.panel3.Location = new System.Drawing.Point(1, 151);
+            this.panel3.Location = new System.Drawing.Point(1, 147);
             this.panel3.Margin = new System.Windows.Forms.Padding(1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(204, 148);
+            this.panel3.Size = new System.Drawing.Size(204, 144);
             this.panel3.TabIndex = 1;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             this.panel3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter);
@@ -247,10 +250,10 @@
             // 
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.pictureBox7);
-            this.panel4.Location = new System.Drawing.Point(1, 301);
+            this.panel4.Location = new System.Drawing.Point(1, 293);
             this.panel4.Margin = new System.Windows.Forms.Padding(1);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(204, 148);
+            this.panel4.Size = new System.Drawing.Size(204, 144);
             this.panel4.TabIndex = 2;
             this.panel4.Click += new System.EventHandler(this.panel4_Click);
             this.panel4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
@@ -288,10 +291,10 @@
             // 
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.pictureBox8);
-            this.panel5.Location = new System.Drawing.Point(1, 451);
+            this.panel5.Location = new System.Drawing.Point(1, 439);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(204, 148);
+            this.panel5.Size = new System.Drawing.Size(204, 144);
             this.panel5.TabIndex = 3;
             this.panel5.Click += new System.EventHandler(this.panel5_Click);
             this.panel5.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
@@ -327,9 +330,9 @@
             // 
             // panel6
             // 
-            this.panel6.Location = new System.Drawing.Point(205, 50);
+            this.panel6.Location = new System.Drawing.Point(211, 52);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(835, 603);
+            this.panel6.Size = new System.Drawing.Size(811, 585);
             this.panel6.TabIndex = 3;
             // 
             // contextMenuStrip1
@@ -357,8 +360,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1040, 653);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(1027, 644);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
@@ -367,7 +370,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

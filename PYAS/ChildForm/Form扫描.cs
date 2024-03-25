@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PYAS.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,12 +24,20 @@ namespace PYAS.ChildForm
 
         public void WriteLog(string message, Color color, float fontSize)
         {
-            richTextBox1.SelectionStart = richTextBox1.TextLength;
-            richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, fontSize);
-            richTextBox1.SelectionColor = color;
-            richTextBox1.AppendText(message + Environment.NewLine);
-            richTextBox1.ScrollToCaret(); // 确保滚动到最新日志  
+            if (richTextBox1.InvokeRequired)
+            {
+                richTextBox1.Invoke(new Action(() => WriteLog(message, color, fontSize)));
+            }
+            else
+            {
+                richTextBox1.SelectionStart = richTextBox1.TextLength;
+                richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, fontSize);
+                richTextBox1.SelectionColor = color;
+                richTextBox1.AppendText(message + Environment.NewLine);
+                richTextBox1.ScrollToCaret(); // 确保滚动到最新日志  
+            }
         }
+
 
         public void WriteLog(string message)
         {
@@ -49,12 +58,12 @@ namespace PYAS.ChildForm
             pictureBox2.Region = rg;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private async void pictureBox1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             dialog.Description = "请选择一个目录作为路径：";
-            dialog.ShowNewFolderButton = true;
-            dialog.RootFolder = Environment.SpecialFolder.ApplicationData;
+            dialog.ShowNewFolderButton = false;
 
             DialogResult result = dialog.ShowDialog();
 
@@ -64,19 +73,53 @@ namespace PYAS.ChildForm
                 // 确保文件夹存在  
                 if (Directory.Exists(folderPath))
                 {
-                    WriteLog($"开始扫描{folderPath}",Color.Black,12);
+                    //WriteLog($"开始扫描{folderPath}", Color.Black, 12);
                     // 遍历文件夹下的所有文件  
-                    foreach (string filePath in Directory.GetFiles(folderPath, "*.*", SearchOption.AllDirectories))
+                    foreach (string filePath in Directory.GetFiles(folderPath, "*.exe", SearchOption.AllDirectories))
                     {
-                        // 输出文件的完整路径  
-                        //Console.WriteLine(filePath);
+                        await Task.Run(() =>
+                        {
+                            // 输出文件的完整路径  
+                           // WriteLog("开始扫描："+filePath);
+                            string str = _360.Api360CloudScan(_360.GetMD5HashFromFile(filePath));
+                            string cout = "";
+
+                           // WriteLog(str);
+                           
+                            double temp = double.Parse(str);
+                            int res = (int)temp;
+
+                            if (res >= 50)
+                            {
+                                cout = "危险";
+                                WriteLog(cout + "    ---    " + filePath, Color.Red, 10);
+                            }
+                            else if (res <= 20)
+                            {
+                                cout = "安全";
+                                WriteLog(cout + "    ---    " + filePath, Color.Green, 10);
+                            }
+                            else if (res == 0)
+                            {
+                                cout = "扫描失败";
+                                WriteLog(cout + "    ---    " + filePath, Color.Green, 10);
+                            }
+                            else
+                            {
+                                cout = "可疑";
+                                WriteLog(cout + "    ---    " + filePath+"  "+ str, Color.Yellow, 10);
+                            }
+                        });
                     }
+
+                    WriteLog("扫描完毕");
                 }
                 else
                 {
-                    Console.WriteLine("指定的文件夹不存在。");
+                    WriteLog("指定的文件夹不存在。");
                 }
             }
         }
+
     }
 }

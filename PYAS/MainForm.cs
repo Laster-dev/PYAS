@@ -10,11 +10,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UClass.View.Login;
 
 namespace PYAS
 {
+
     public partial class MainForm : Form
     {
+
         Form activeform;
         Form状态 form状态 = new Form状态();
         Form扫描 form扫描 = new Form扫描();
@@ -23,6 +26,7 @@ namespace PYAS
         public MainForm()
         {
             InitializeComponent();
+            SetFormRoundRectRgn(this, 20);	//设置圆角
             contextMenuStrip1.Renderer = new CustomContextMenuStripRenderer();
             activeform = form状态;
             activeform.TopLevel = false;
@@ -31,6 +35,7 @@ namespace PYAS
             activeform.Show();
 
         }
+
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
@@ -43,6 +48,7 @@ namespace PYAS
                 await Task.Delay(30); // 添加延迟以控制动画速度
             }
         }
+
         private async void StartFadeInAnimation2()
         {
             while (Opacity > 0.7)
@@ -135,7 +141,7 @@ namespace PYAS
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            this.Close();
            
         }
 
@@ -186,9 +192,9 @@ namespace PYAS
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            
 
-            float radius = 15; // 圆角的大小
+
+            float radius = 10; // 圆角的大小
             GraphicsPath path = new GraphicsPath();
             Rectangle rect = new Rectangle(0, 0, this.Width - 1, this.Height - 1); // 减1是为了确保边界在窗体内
             int diameter = (int)radius * 2;
@@ -198,7 +204,7 @@ namespace PYAS
             path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90); // 左下角
             path.CloseFigure();
 
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             using (Pen pen = new Pen(Color.Gray, 2)) // 定义灰色线条，线宽为2
             {
                 e.Graphics.DrawPath(pen, path);
@@ -303,6 +309,53 @@ namespace PYAS
         private void panel5_MouseLeave(object sender, EventArgs e)
         {
             panel5.BackColor = Color.FromArgb(230, 230, 230);
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+           // asc.controlAutoSize(this);
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+      
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            /*Graphics g = e.Graphics;   //实例化Graphics 对象g
+            Color FColor = Color.White; //颜色1
+            Color TColor = Color.Blue;  //颜色2
+            Brush b = new LinearGradientBrush(this.ClientRectangle, FColor, TColor, LinearGradientMode.Vertical);  //实例化刷子，第一个参数指示上色区域，第二个和第三个参数分别渐变颜色的开始和结束，第四个参数表示颜色的方向。
+            g.FillRectangle(b, this.ClientRectangle);  //进行上色*/
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+          
+        }
+        /// <summary>
+        /// 设置窗体的圆角矩形
+        /// </summary>
+        /// <param name="form">需要设置的窗体</param>
+        /// <param name="rgnRadius">圆角矩形的半径</param>
+        public static void SetFormRoundRectRgn(Form form, int rgnRadius)
+        {
+            int hRgn = 0;
+            hRgn = Win32.CreateRoundRectRgn(0, 0, form.Width + 1, form.Height + 1, rgnRadius, rgnRadius);
+            Win32.SetWindowRgn(form.Handle, hRgn, true);
+            Win32.DeleteObject(hRgn);
         }
     }
     //contextMenuStrip1.Renderer = new CustomContextMenuStripRenderer();

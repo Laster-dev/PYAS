@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace MotaAntivirus.Antivirus.ScanFile
+namespace PYAS.Helper
 {
-    public class S360Cloud
+    internal class _360
     {
         public static string Api360Url;
         private static HttpWebRequest Api360request;
@@ -68,7 +70,7 @@ Content-Disposition: form-data; name=""mid""
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     string body = reader.ReadToEnd();
-                    Console.WriteLine(body);
+                    //Console.WriteLine(body);
                     XElement Xmlbody = XElement.Parse(body);
                     string MalwareName = Xmlbody.Descendants("e_level").FirstOrDefault()?.Value;
                     response.Close();
@@ -81,13 +83,13 @@ Content-Disposition: form-data; name=""mid""
                     }
                     else
                     {
-                        return "MalwareName != null";
+                        return "0";
                     }
                 }
             }
             catch
             {
-                return "            catch\r\n";
+                return "0";
             }
         }
         /// <summary>
@@ -124,12 +126,6 @@ Content-Disposition: form-data; name=""mid""
                 Console.WriteLine(ex.Message);
                 throw;
             }
-        }
-        public static void Main(string[] args) {
-
-            var str = Api360CloudScan(GetMD5HashFromFile(@"C:\Users\laster\Desktop\hpatchz.exe"));
-            Console.WriteLine(str);
-            Console.ReadKey();
         }
     }
 }
